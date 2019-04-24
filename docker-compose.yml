@@ -1,0 +1,13 @@
+version: "3"
+services:
+  riscv-assembly:
+    build: .
+    volumes: 
+      - ./:/work
+    command: >
+      riscv64-unknown-elf-gcc
+      -S
+      -march=rv32i
+      -mabi=ilp32
+      -o /work/hello.s
+      /work/hello.c
